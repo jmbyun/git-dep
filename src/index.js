@@ -1,3 +1,4 @@
+const fs = require('fs');
 const git = require('./git');
 const log = require('fancy-log')
 const ssh = require('./git-ssh');

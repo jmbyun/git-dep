@@ -1,4 +1,5 @@
 const log = require('fancy-log');
+const spawn = require('child_process').spawn;
 
 function sshKeyChmod(path) {
   return new Promise((resolve, reject) => {
