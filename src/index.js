@@ -3,21 +3,15 @@ const git = require('./git');
 const log = require('fancy-log')
 const ssh = require('./git-ssh');
 
+const DEFAULT_CONFIG_PATH = './git-dep.config.js';
 const DEFAULT_BASE_PATH = 'git_repositories';
 
 function getConfig() {
-  return new Promise((resolve, reject) => {
-    const packageInfo = JSON.parse(fs.readFileSync(`./package.json`, 'utf8', err => {
-      if (err) {
-        reject(err);
-      }
-    }));
-    if (packageInfo) {
-      resolve(packageInfo.gitDep);
-    } else {
-      reject('Failed to parse package.json');
-    }
-  });
+  if (fs.existsSync(DEFAULT_CONFIG_PATH)) {
+    return require(DEFAULT_CONFIG_PATH);
+  } else {
+    return require('./package.json').gitDep;
+  }
 }
 
 module.exports = function installGitRepos() {
