@@ -1,6 +1,6 @@
 {
   "name": "git-dep",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Manages node.js package dependency towards Git repositories.",
   "main": "src/index.js",
   "repository": "ssh://git@git.elicer.io:2201/elice/git-dep.git",
